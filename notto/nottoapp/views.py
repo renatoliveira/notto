@@ -27,10 +27,17 @@ def note(request, note_name):
             if request.method == 'GET':
                 raise Note.DoesNotExist
             elif request.method == 'POST':
-                print(request)
-                print(request.POST)
+                if 'content' not in request.POST:
+                    return render(
+                        request,
+                        'note.html',
+                        {
+                            'content': '',
+                            'note_url': note_name
+                        }
+                    )
                 note = Note(
-                    content='',
+                    content=request.POST['content'],
                     url_title=note_name
                 )
                 note.save()
