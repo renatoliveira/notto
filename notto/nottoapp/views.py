@@ -1,16 +1,17 @@
-# from django.shortcuts import render
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import Http404
 from django.views.decorators.csrf import csrf_protect
 from .models import Note
 import json
 
-# Create your views here.
 def index(request):
     '''
     Index
     '''
-    return 'Hello'
+    return render(
+        request,
+        'index.html'
+    )
 
 @csrf_protect
 def note(request, note_name):
