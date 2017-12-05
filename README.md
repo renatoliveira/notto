@@ -1,2 +1,4 @@
-# notto
-An online notepad based on Django and using QuillJS on the frontend.
+1. Clone this repo
+2. `python -m venv nottoenv`
+3. `pip installl -r requirements.txt`
+4. `nottoenvt\Scripts\activate`

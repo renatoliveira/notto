@@ -1,0 +1,48 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.4/quill.snow.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="utf-8">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .fullpage {
+        width: 100%;
+        height: 90%;
+    }
+    .save-button {
+        margin-left: 10px;
+        margin-top: 1em;
+    }
+</style>
+<form class="fullpage" action="/{{note_url}}" method="post">
+    {% csrf_token %}
+    <input name="content" type="hidden">
+    <div id="editor"></div>
+    <button type="submit" class="btn btn-primary save-button">Save</button>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.4/quill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script>
+    // reference: https://codepen.io/quill/pen/kXRjQJ
+    Quill.prototype.getHtml = function () {
+        return this.container.querySelector('.ql-editor').innerHTML;
+    }
+    Quill.prototype.setHtml = function (val) {
+        return this.container.querySelector('.ql-editor').innerHTML = val;
+    }
+    var q = new Quill('#editor', {
+        theme: 'snow'
+    });
+    var parser = new DOMParser;
+    var content = '{{content}}'
+    if (content != '') {
+        q.setHtml(parser.parseFromString('{{content}}', 'text/html').body.textContent);
+    }
+    var form = document.querySelector('form');
+    form.onsubmit = function () {
+        var content = document.querySelector('input[name=content]');
+        content.value = JSON.stringify(q.getContents());
+        content.value = q.getHtml();
+    };
+</script>
