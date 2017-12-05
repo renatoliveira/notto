@@ -26,7 +26,7 @@ else:
     SECRET_KEY = 'd6f1&y(dx-2oiilb&17itsjtqt6&@*&q#(wpwmx(=hwyu4$64-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -122,3 +122,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+ALLOWED_HOSTS = ['*']
