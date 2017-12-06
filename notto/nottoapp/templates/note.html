@@ -6,20 +6,23 @@
         margin: 0;
         padding: 0;
     }
-    .fullpage {
-        width: 100%;
-        height: 90%;
+    form {
+        margin: 0;
+    }
+    .notto-button-bar {
+        padding: 5px;
     }
     .save-button {
-        margin-left: 10px;
-        margin-top: 1em;
+        margin-left: 5px;
     }
 </style>
-<form class="fullpage" action="/{{note_url}}" method="post">
+<form id="mainform" action="/{{note_url}}" method="post">
     {% csrf_token %}
     <input name="content" type="hidden">
     <div id="editor"></div>
-    <button type="submit" class="btn btn-primary save-button">Save</button>
+    <div class="notto-button-bar">
+        <button type="submit" class="btn btn-primary save-button">Save</button>
+    </div>
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.4/quill.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -45,4 +48,12 @@
         content.value = JSON.stringify(q.getContents());
         content.value = q.getHtml();
     };
+    $(document).ready(function() {
+        var setEditorSize = function () {
+            var toolbar = $('.ql-toolbar').outerHeight();
+            var nottoBottomBar = $('.notto-button-bar').outerHeight();
+            $('#editor').css('height', window.innerHeight - toolbar - nottoBottomBar);
+        }
+        setEditorSize();
+    })
 </script>
