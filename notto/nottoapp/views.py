@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
-from django.http import Http404
+'''
+Notto views
+'''
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from .models import Note
-import json
 
 def index(request):
     '''
@@ -16,9 +17,9 @@ def index(request):
 @csrf_protect
 def note(request, note_name):
     '''
-    A note
+    A record
     '''
-    note = None
+    record = None
     try:
         notes = Note.objects.filter(
             url_title=note_name
@@ -36,29 +37,29 @@ def note(request, note_name):
                             'note_url': note_name
                         }
                     )
-                note = Note(
+                record = Note(
                     content=request.POST['content'],
                     url_title=note_name
                 )
-                note.save()
+                record.save()
         else:
             if request.method == 'GET':
-                note = notes[0]
+                record = notes[0]
             elif request.method == 'POST':
-                note = notes[0]
-                note.content = request.POST['content']
-                print(note.content)
-                note.save()
+                record = notes[0]
+                record.content = request.POST['content']
+                print(record.content)
+                record.save()
     except Note.DoesNotExist:
-        note = Note(
+        record = Note(
             content='',
             url_title=note_name
         )
     return render(
         request,
-        'note.html',
+        'record.html',
         {
-            'content': note.content,
-            'note_url': note.url_title
+            'content': record.content,
+            'note_url': record.url_title
         }
     )
