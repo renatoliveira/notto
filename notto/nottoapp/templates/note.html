@@ -12,18 +12,26 @@
   body {
     margin: 0;
     padding: 0;
+    max-height: 100vh;
+    overflow-x: hidden;
   }
   form {
     margin: 0;
   }
-  .notto-button-bar {
-    padding: 5px;
+  .ql-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: white
   }
   .save-button {
     margin-left: 5px;
   }
   #editor {
-    height: calc(100vh - 42px);
+    position: relative;
+    z-index: 1;
   }
   .ql-status {
     opacity: 0;
@@ -34,13 +42,12 @@
     opacity: 1;
   }
   </style>
-  <form id="mainform" action="/{{note_url}}" method="post">
 </head>
 <body>
-    {% csrf_token %}
-    <input name="content" type="hidden">
+  {% csrf_token %}
+  <div class="editor-wrapper">
     <div id="editor"></div>
-  </form>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.4/quill.min.js"></script>
   <script>
   // Underscore.js debounce
@@ -80,6 +87,12 @@
     status.classList.add('loading')
     http.send(data);
   }
+  function updatePosition () {
+    var toolbar = document.querySelector('.ql-toolbar');
+    var editor = document.querySelector('.ql-editor');
+    var measures = toolbar.getBoundingClientRect()
+    editor.style.padding = measures.height + 'px 0px 0px 0px'
+  }
   </script>
   <script>
   // reference: https://codepen.io/quill/pen/kXRjQJ
@@ -110,17 +123,14 @@
   if (content != '') {
     q.setHtml(parser.parseFromString('{{content}}', 'text/html').body.textContent);
   }
+  updatePosition()
+  window.addEventListener('resize', updatePosition)
+
   setTimeout(function () {
     q.on('text-change', debounce(function() {
       save(document.querySelector('.ql-status'), q.getHtml());
     }, 250));
   })
-  var form = document.querySelector('form');
-  form.onsubmit = function () {
-    var content = document.querySelector('input[name=content]');
-    content.value = q.getHtml();
-  };
   </script>
-
 </body>
 </html>
