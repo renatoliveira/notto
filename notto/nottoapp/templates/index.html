@@ -3,27 +3,117 @@
         <meta charset="utf-8">
         <title>notto.io</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <style>
+        .title, .subtitle, .button {
+          font-family: 'Noto Sans', sans-serif;
+          text-align: center;
+        }
+        .title {
+          margin: 128px 0 48px 0;
+          color: #444;
+          text-indent: -9999px;
+        }
+        .title img {
+          display: block;
+          width: 240px;
+          margin: 0 auto;
+        }
+        .subtitle {
+          margin: 32px;
+          font-size: 16px;
+          line-height: 26px;
+          color: #444;
+          font-weight: normal;
+        }
+        .input-group {
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
+          transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+          height: 44px;
+          line-height: 44px;
+          vertical-align: middle;
+        }
+        .input-group input {
+          height: 44px;
+          line-height: 44px;
+        }
+        .button {
+          height: 44px;
+          vertical-align: middle;
+          background-color: #111;
+          color: #fafafa;
+          border: 0;
+          border-radius: 2px;
+          padding: 4px 16px;
+        }
+        .input-group .input-group-addon, .input-group input {
+          border: 0;
+          font-size: 18px;
+        }
+        .footer {
+          margin-top: -64px;
+          width: 100%;
+        }
+        .center {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 32px;
+        }
+        .main {
+          min-height: 100vh;
+          padding-bottom: 64px;
+        }
+        .nav {
+          text-align: center;
+        }
+        </style>
     </head>
     <body>
-        <div class="container">
+        <div class="main container">
             <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <h1>Welcome to notto.io!</h1>
-                    <p>To begin, simply access a url on this site and start typing!</p>
-                    <p>For example: <a href="/mynote"><code>notto.io/mynote</code></a></p>
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="title">
+                      <img src="data:image/png;base64,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" alt="Notto.io"/>
+                    </h1>
+                    <h2 class="subtitle">
+                      Notto.io is a simple online text editor<br/>
+                      that enables anyone to save and edit notes using rich text<br/>
+                      <strong>Simply access an URL on the site and start typing!</strong>
+                    </h2>
                 </div>
-                <div class="col-md-4"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="input-group">
+                  <span class="input-group-addon">notto.io/</span>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="center">
+                  <button type="button" class="button">Start typing</button>
+                </div>
+              </div>
             </div>
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="col-md-offset-4 col-md-4">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="https://github.com/renatoliveira/notto">GitHub</a></li>
-                    </ul>
-                </div>
+              <div class="col-md-offset-4 col-md-4">
+                <ul class="nav nav-pills nav-justified">
+                  <li>
+                    <a class="github-button" href="https://github.com/renatoliveira/notto" data-size="large" data-show-count="true" aria-label="Star renatoliveira/notto on GitHub"  alt="Notto.io Github">Star</a>
+                  </li>
+                </ul>
+              </div>
             </div>
         </footer>
+        <script>
+          var folders = ['my', 'what', 'some', 'secret', 'safe', 'chuck', 'norris', 'blank']
+          var wordList = ["done","themselves","settle","wet","military","actual","frame","paid","came","moon","count","finest","bigger","rubbed","nearby","plain","disease","burn","market","they","nor","mouse","rays","choose","line","film","lonely","neighborhood","slave","hunt","quite","bent","construction","copy","thou","cat","characteristic","you","history","negative","which","continent","flew","fair","sport","balloon","give","forty","passage","fix"];
+          var getAWord = function () {
+            return wordList[Math.floor(Math.random() * wordList.length)]
+          }
+          document.querySelector('.form-control').placeholder = getAWord() + '/' + getAWord()
+        </script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
     </body>
 </html>
