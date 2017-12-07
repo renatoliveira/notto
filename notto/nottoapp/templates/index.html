@@ -95,8 +95,8 @@
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
                 <div class="input-group">
-                  <span class="input-group-addon">notto.io/</span>
-                  <input type="text" class="form-control" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+                  <span class="input-group-addon no-border">notto.io/</span>
+                  <input type="text" class="form-control no-border" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
                 </div>
                 <div class="center">
                   <a type="button" class="button">Start typing</a>
@@ -125,6 +125,7 @@
           var button = document.querySelector('.button')
 
           input.placeholder = getAWord() + '/' + getAWord()
+<<<<<<< HEAD
           input.addEventListener('keyup', function (event) {
             var key = event.which || event.keyCode
             var ENTER = 13
@@ -132,6 +133,10 @@
             if (key == ENTER) {
               window.location = window.location.origin + '/' + input.value
             }
+=======
+          input.addEventListener('keyup', function () {
+            button.href = input.value
+>>>>>>> upstream/master
           })
         </script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
