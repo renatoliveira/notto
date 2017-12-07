@@ -125,7 +125,6 @@
           var button = document.querySelector('.button')
 
           input.placeholder = getAWord() + '/' + getAWord()
-<<<<<<< HEAD
           input.addEventListener('keyup', function (event) {
             var key = event.which || event.keyCode
             var ENTER = 13
@@ -133,10 +132,6 @@
             if (key == ENTER) {
               window.location = window.location.origin + '/' + input.value
             }
-=======
-          input.addEventListener('keyup', function () {
-            button.href = input.value
->>>>>>> upstream/master
           })
         </script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
