@@ -39,12 +39,18 @@
         }
         .button {
           height: 44px;
+          line-height: 35px;
           vertical-align: middle;
           background-color: #111;
           color: #fafafa;
           border: 0;
           border-radius: 2px;
           padding: 4px 16px;
+          cursor: pointer;
+        }
+        .button:hover {
+          text-decoration: none;
+          color: #fafafa;
         }
         .input-group .input-group-addon, .input-group input {
           border: 0;
@@ -90,7 +96,7 @@
                   <input type="text" class="form-control">
                 </div>
                 <div class="center">
-                  <button type="button" class="button">Start typing</button>
+                  <a type="button" class="button">Start typing</a>
                 </div>
               </div>
             </div>
@@ -112,7 +118,13 @@
           var getAWord = function () {
             return wordList[Math.floor(Math.random() * wordList.length)]
           }
-          document.querySelector('.form-control').placeholder = getAWord() + '/' + getAWord()
+          var input = document.querySelector('.form-control')
+          var button = document.querySelector('.button')
+
+          input.placeholder = getAWord() + '/' + getAWord()
+          input.addEventListener('keyup', function () {
+            button.href = input.value
+          })
         </script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
     </body>
