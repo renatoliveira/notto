@@ -3,27 +3,102 @@
         <meta charset="utf-8">
         <title>notto.io</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <style>
+        .title, .subtitle, .button {
+          font-family: 'Noto Sans', sans-serif;
+          text-align: center;
+          color: #444;
+        }
+        .title {
+          margin: 128px 0 48px 0;
+        }
+        .subtitle {
+          margin: 32px;
+          font-size: 18px;
+          line-height: 28px;
+        }
+        .input-group {
+          box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
+          transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+          height: 44px;
+          line-height: 44px;
+          vertical-align: middle;
+        }
+        .input-group input {
+          height: 44px;
+          line-height: 44px;
+        }
+        .button {
+          height: 44px;
+          vertical-align: middle;
+          background-color: #111;
+          color: #fafafa;
+          border: 0;
+          border-radius: 2px;
+          padding: 4px 16px;
+        }
+        .input-group .input-group-addon, .input-group input {
+          border: 0;
+          font-size: 18px;
+        }
+        .footer {
+          position: fixed;
+          bottom: 16px;
+          width: 100%;
+        }
+        .center {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 32px;
+        }
+        </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <h1>Welcome to notto.io!</h1>
-                    <p>To begin, simply access a url on this site and start typing!</p>
-                    <p>For example: <a href="/mynote"><code>notto.io/mynote</code></a></p>
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="title">
+                      Notto.io
+                    </h1>
+                    <h2  class="subtitle">
+                      Notto.io is a simple online text editor that enables anyone to save and edit notes using rich text. Simply access an URL on the site and start typying!
+                    </h2>
                 </div>
-                <div class="col-md-4"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="input-group">
+                  <span class="input-group-addon">notto.io/</span>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="center">
+                  <button type="button" class="button">Start typing</button>
+                </div>
+              </div>
             </div>
         </div>
         <footer class="footer">
             <div class="container">
-                <div class="col-md-offset-4 col-md-4">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="https://github.com/renatoliveira/notto">GitHub</a></li>
-                    </ul>
-                </div>
+              <div class="col-md-offset-4 col-md-4">
+                <ul class="nav nav-pills nav-justified">
+                  <li>
+                    <a href="https://github.com/renatoliveira/notto" alt="Github">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024"><path d="M512 0c-282.9 0-512 229.2-512 512 0 226.2 146.7 418.1 350.1 485.8 25.6 4.8 35-11 35-24.6 0-12.2-0.4-44.4-0.6-87-142.5 30.9-172.5-68.7-172.5-68.7-23.3-59.1-57-74.9-57-74.9-46.4-31.7 3.6-31.1 3.6-31.1 51.4 3.6 78.4 52.7 78.4 52.7 45.7 78.3 119.9 55.7 149.1 42.6 4.6-33.1 17.8-55.7 32.4-68.5-113.7-12.8-233.2-56.8-233.2-253 0-55.9 19.8-101.6 52.7-137.4-5.8-12.9-23-65 4.5-135.5 0 0 42.9-13.8 140.8 52.5 41-11.4 84.5-17 128-17.3 43.5 0.3 87 5.9 128 17.3 97.3-66.2 140.2-52.5 140.2-52.5 27.5 70.5 10.2 122.6 5.1 135.5 32.6 35.8 52.5 81.5 52.5 137.4 0 196.7-119.7 240-233.6 252.6 17.9 15.4 34.6 46.7 34.6 94.7 0 68.5-0.6 123.5-0.6 140.2 0 13.4 9 29.4 35.2 24.3 204.9-67.1 351.4-259.1 351.4-485.1 0-282.8-229.2-512-512-512z"/></svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
         </footer>
+        <script>
+          var folders = ['my', 'what', 'some', 'secret', 'safe', 'chuck', 'norris', 'blank']
+          var wordList = ["done","themselves","settle","wet","military","actual","frame","paid","came","moon","count","finest","bigger","rubbed","nearby","plain","disease","burn","market","they","nor","mouse","rays","choose","line","film","lonely","neighborhood","slave","hunt","quite","bent","construction","copy","thou","cat","characteristic","you","history","negative","which","continent","flew","fair","sport","balloon","give","forty","passage","fix"];
+          var getAWord = function () {
+            return wordList[Math.floor(Math.random() * wordList.length)]
+          }
+          document.querySelector('.form-control').placeholder = getAWord() + '/' + getAWord()
+        </script>
     </body>
 </html>

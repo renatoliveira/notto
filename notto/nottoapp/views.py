@@ -57,7 +57,7 @@ def note(request, note_name):
         )
     return render(
         request,
-        'record.html',
+        'note.html',
         {
             'content': record.content,
             'note_url': record.url_title
