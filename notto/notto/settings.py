@@ -121,6 +121,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_ROOT = 'notto_static'
+STATIC_ROOT = '/var/www/notto_static'
 STATIC_URL = '/static/'
 ALLOWED_HOSTS = ['*']
