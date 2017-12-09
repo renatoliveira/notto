@@ -142,3 +142,4 @@ $RECYCLE.BIN/
 /.vscode
 *.sqlite3
 migrations
+*/notto_static

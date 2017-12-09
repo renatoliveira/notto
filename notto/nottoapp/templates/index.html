@@ -1,11 +1,12 @@
+{% load static %}
 <html>
     <head>
         <meta charset="utf-8">
         <title>notto.io</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-        <link rel="shortcut icon" type="image/png" href="/static/favicon.png"/>
-        <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
+        <link rel="icon" href="{% static 'favicon.png' %}">
+        <link rel="icon" href="{% static 'favicon.ico' %}">
         <style>
         .title, .subtitle, .button {
           font-family: 'Noto Sans', sans-serif;
