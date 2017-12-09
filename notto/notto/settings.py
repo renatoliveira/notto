@@ -26,7 +26,7 @@ else:
     SECRET_KEY = 'd6f1&y(dx-2oiilb&17itsjtqt6&@*&q#(wpwmx(=hwyu4$64-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
