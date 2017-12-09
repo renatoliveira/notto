@@ -30,8 +30,8 @@ class Note(models.Model):
 
     def __str__(self):
         if self.created_by is not None:
-            return 'A note by {}.'.format(self.created_by.name)
-        return 'An annonymous note.'
+            return '{} by {}.'.format(self.url_title, self.created_by.name)
+        return '{} by annonymous.'.format(self.url_title)
 
     def get_children(self):
         '''
