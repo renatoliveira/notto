@@ -47,4 +47,4 @@ class Note(models.Model):
         Get parent note
         '''
         if self.url_title is not None and self.parent_note is not None:
-            return Note.objects.get(pk=self.parent_note.id)
+            return self.parent_note
