@@ -22,7 +22,7 @@ class NoteTestCase(TestCase):
             content='testing!',
             parent_note=parent
         )
-        loose_note = Note.objects.create(
+        Note.objects.create(
             url_title='lonely_note',
             content='I\'m sad'
         )
