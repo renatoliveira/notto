@@ -48,7 +48,6 @@ def note(request, note_name):
             elif request.method == 'POST':
                 record = notes[0]
                 record.content = request.POST['content']
-                print(record.content)
                 record.save()
     except Note.DoesNotExist:
         record = Note(
