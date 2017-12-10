@@ -20,6 +20,8 @@ def note(request, note_name):
     A record
     '''
     record = None
+    if note_name == '':
+        note_name = request.path[1:]
     try:
         notes = Note.objects.filter(
             url_title=note_name
@@ -34,7 +36,9 @@ def note(request, note_name):
                         'note.html',
                         {
                             'content': '',
-                            'note_url': note_name
+                            'note_url': note_name,
+                            'parent': record.get_parent(),
+                            'children': []
                         }
                     )
                 record = Note(
@@ -59,6 +63,8 @@ def note(request, note_name):
         'note.html',
         {
             'content': record.content,
-            'note_url': record.url_title
+            'note_url': record.url_title,
+            'parent': record.get_parent(),
+            'children': record.get_children()
         }
     )
