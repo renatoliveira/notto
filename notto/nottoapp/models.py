@@ -24,12 +24,6 @@ class Note(models.Model):
         blank=True,
         null=True
     )
-    parent_note = models.ForeignKey(
-        'self',
-        on_delete='CASCADE',
-        blank=True,
-        null=True
-    )
 
     def __str__(self):
         if self.created_by is not None:
