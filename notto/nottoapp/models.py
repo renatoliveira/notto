@@ -38,7 +38,6 @@ class Note(models.Model):
             children = Note.objects.filter(
                 url_title__startswith=self.url_title+'/'
             )
-            print(children)
             return children
 
     def has_parent(self):
