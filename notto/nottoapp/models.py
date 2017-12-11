@@ -10,7 +10,10 @@ class Note(models.Model):
     '''
     content = models.TextField()
     url_title = models.CharField(
-        max_length=500
+        max_length=500,
+        unique=True,
+        blank=False,
+        null=False
     )
     last_modified_date = models.DateTimeField(
         auto_now=True
@@ -24,5 +27,39 @@ class Note(models.Model):
 
     def __str__(self):
         if self.created_by is not None:
-            return 'A note by {}.'.format(self.created_by.name)
-        return 'An annonymous note.'
+            return '{} by {}.'.format(self.url_title, self.created_by.name)
+        return '{} by annonymous.'.format(self.url_title)
+
+    def get_children(self):
+        '''
+        Get children notes
+        '''
+        if self.url_title is not None:
+            children = Note.objects.filter(
+                url_title__startswith=self.url_title+'/'
+            )
+            print(children)
+            return children
+
+    def has_parent(self):
+        '''
+        Returns if this note has a parent note
+        '''
+        if len(self.url_title.split('/')) > 1:
+            return True
+        return False
+
+    def get_parent(self):
+        '''
+        Get parent note
+        '''
+        if self.url_title is not None and self.has_parent():
+            parent = Note.objects.filter(
+                url_title=''.join(self.url_title.split('/')[:-1])
+            )
+            if not parent:
+                parent = [Note(
+                    url_title=''.join(self.url_title.split('/')[:-1]),
+                    content=''
+                )]
+            return parent[0]
