@@ -81,7 +81,7 @@
     data.append('content', content);
     data.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
 
-    http.open("POST", url, true);
+    http.open("POST", window.location.origin + '/' + url, true);
     http.onreadystatechange = function() {
       if(http.readyState == 4 && http.status == 200) {
         clearTimeout(debounceStatus);
