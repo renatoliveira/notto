@@ -1,0 +1,85 @@
+.title, .subtitle, .button {
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+}
+.title {
+  margin: 128px 0 0 0;
+  color: #444;
+  text-indent: -9999px;
+}
+.title img {
+  display: block;
+  width: 240px;
+  margin: 0 auto;
+}
+.subtitle {
+  margin: 32px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #444;
+  font-weight: normal;
+}
+.input-group {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16),0 0 0 1px rgba(0,0,0,0.08);
+  transition: box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  height: 44px;
+  line-height: 44px;
+  vertical-align: middle;
+}
+.input-group input {
+  height: 44px;
+  line-height: 44px;
+}
+.button {
+  height: 44px;
+  line-height: 35px;
+  vertical-align: middle;
+  background-color: #111;
+  color: #fafafa;
+  border: 0;
+  border-radius: 2px;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+.button:hover {
+  text-decoration: none;
+  color: #fafafa;
+}
+.input-group .input-group-addon, .input-group input {
+  border: 0;
+  font-size: 18px;
+}
+.footer {
+  margin-top: -64px;
+  width: 100%;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.main {
+  min-height: 100vh;
+  padding-bottom: 64px;
+}
+.nav {
+  text-align: center;
+}
+.no-border {
+  border-radius: 0;
+}
+@media (max-device-width: 600px) {
+  .title {
+    margin: 32px 0 0 0;
+  }
+  .subtitle {
+    margin: 16px 0;
+  }
+  .input-group .input-group-addon, .input-group input{
+    font-size: 16px;
+  }
+  .button {
+    font-size: 16px;
+  }
+}
