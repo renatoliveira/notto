@@ -42,3 +42,86 @@ form {
     font-size: 19px;
   }
 }
+.note-children ~ .editor-wrapper, .note-children ~ .editor-wrapper > .ql-toolbar{
+  margin-left: 200px;
+}
+.note-children.--hidden {
+  display: none;
+}
+.note-children.--hidden ~ .editor-wrapper, .note-children.--hidden ~ .editor-wrapper > .ql-toolbar{
+  margin-left: 0;
+}
+.note-children {
+  float: left;
+  width: calc(200px - 16px);
+  padding: 8px;
+}
+.note-children ul {
+  margin: 0;
+  padding: 0;
+}
+.note-children ul ul {
+  margin-left: 10px;
+  display: none;
+}
+.note-children ul .visible {
+  display: flex;
+}
+.note-children a {
+  text-decoration: none;
+  font-weight: bold;
+  color: blue;
+}
+.note-children li {
+  position: relative;
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.note-children ul {
+  display: flex;
+  flex-direction: column;
+}
+.note-children .icon.folder + .path {
+  font-weight: bold;
+}
+.note-children li.folder {
+  order: 1;
+}
+.note-children li.file {
+  order: 2;
+}
+.note-children ul .path {
+  display: inline-block;
+  line-height: 24px;
+  vertical-align: middle;
+  margin-top: -8px;
+  font-family: monospace;
+  padding: 0 0 0 4px;
+  cursor: pointer;
+}
+.note-children ul li .icon {
+  height: 24px;
+  display: inline-block;
+  line-height: 24px;
+}
+.note-children ul li .icon.link {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  background-color: white;
+  padding: 4px;
+}
+.note-children ul li .icon svg {
+  height: 18px;
+  width: 18px;
+}
+.note-children ul li .icon.link svg {
+  height: 13px;
+  width: 13px;
+}
+.note-children ul li .icon.link svg path {
+  fill: blue;
+}
