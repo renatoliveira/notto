@@ -73,3 +73,15 @@ class NoteAccessTest(TestCase):
         except IntegrityError:
             pass
         self.assertEqual(1, len(Note.objects.all()))
+
+    def test_ignore_slash_at_end_of_url(self):
+        '''
+        Should ignore the slash at the end, because '/foo' is the same note as '/foo/'
+        '''
+        form_data = {
+            'content': 'some text'
+        }
+        self.client.post('/foo', form_data)
+        self.assertEqual(1, len(Note.objects.all()))
+        self.client.post('/foo/', form_data)
+        self.assertEqual(1, len(Note.objects.all()))

@@ -24,6 +24,8 @@ def note(request, note_name):
     record = None
     if note_name == '':
         note_name = request.path[1:]
+    if note_name[len(note_name) - 1] == '/':
+        note_name = note_name[:-1]
     try:
         notes = Note.objects.filter(
             url_title=note_name
