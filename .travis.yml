@@ -6,4 +6,4 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - python notto/manage.py test
+  - python notto/manage.py test notto
