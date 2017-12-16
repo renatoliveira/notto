@@ -1,5 +1,7 @@
 # Notto
 
+[![Build Status](https://travis-ci.org/renatoliveira/notto.svg?branch=master)](https://travis-ci.org/renatoliveira/notto)
+
 ![alt text](https://notto.io/static/img/logo.png)
 
 Notto.io is a simple online text editor that enables anyone to save and edit notes using rich text.
