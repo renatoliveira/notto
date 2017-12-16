@@ -1,11 +1,11 @@
 '''
 Notto views
 '''
+import json
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
-from .models import Note
 from django.core import serializers
-import json
+from .models import Note
 
 def index(request):
     '''
