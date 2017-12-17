@@ -1,13 +1,24 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>{{note_url}} - notto.io</title>
   {% include '_header.html' %}
   <link href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.4/quill.snow.min.css" rel="stylesheet">
+  <!-- twitter bootstrap for the icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/note.css' %}">
+  <link rel="stylesheet" href="{% static 'css/file.css' %}">
 </head>
+
 <body>
+  <div id="file">
+    <a href="{{note_url}}.pdf" class="file_link">
+      <i class="glyphicon glyphicon-save"></i>
+    </a>
+  </div>
   {% csrf_token %}
   <div class="note-children"></div>
   <div class="editor-wrapper">
@@ -25,4 +36,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.4/quill.min.js"></script>
   <script src="{% static 'js/note.js' %}" charset="utf-8"></script>
 </body>
+
 </html>

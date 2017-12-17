@@ -1,0 +1,25 @@
+/*
+* This css file is used for the file configuration
+* Here have the style for download button
+*/
+
+#file{
+  position: fixed;
+  float: right;
+  z-index: +3;
+  text-decoration: none;
+  color: black;
+  padding-top: 6px;
+  right: 6px;
+
+}
+
+.file_link{
+  text-decoration: none;
+  color: black;
+  font-size: 1.5em;
+}
+
+.file_link:hover{
+  color: #0066cc;
+}
