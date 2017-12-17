@@ -1,3 +1,4 @@
-from django.contrib import admin
-
-# Register your models here.
+'''
+Notto Admin.py
+'''
+# Nothing to do here, for now.abs

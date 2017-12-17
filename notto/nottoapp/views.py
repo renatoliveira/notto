@@ -102,9 +102,9 @@ def html2pdf(request, note_name):
     children = serializers.serialize(
         'python', record.get_children().all(), fields=('url_title'))
     children = json.dumps([c['fields'] for c in children])
-
-
-    pdf = render_to_pdf('template.html',  {'pagesize':'A4', 'title': note_name, 'mylist': record.content})
+    pdf = render_to_pdf('template.html', {
+        'pagesize': 'A4',
+        'title': note_name,
+        'mylist': record.content
+    })
     return HttpResponse(pdf, content_type='application/pdf')
-   
-
