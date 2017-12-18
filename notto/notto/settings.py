@@ -23,9 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if 'NOTTO_SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ['NOTTO_SECRET_KEY']
     DEBUG = False
+    print('Running Notto with production settings.')
 else:
     SECRET_KEY = 'd6f1&y(dx-2oiilb&17itsjtqt6&@*&q#(wpwmx(=hwyu4$64-'
     DEBUG = True
+    print('Running Notto in debug mode.')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
