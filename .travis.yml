@@ -7,4 +7,4 @@ install:
 
 script:
   - python notto/manage.py test notto
-  - pylint notto/nottoapp --load-plugins pylint_django
+  # - pylint notto/nottoapp --load-plugins pylint_django
