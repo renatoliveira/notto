@@ -1,5 +1,5 @@
 '''
-Renders a Note to PDF
+module to generate the pdf
 '''
 from io import BytesIO
 from django.http import HttpResponse
@@ -8,7 +8,7 @@ from xhtml2pdf import pisa
 
 def render_to_pdf(template_src, context_dict):
     '''
-    Renders a template as pdf, given a context dict, if necessary
+    renders a document to pdf using a template
     '''
     if context_dict is None:
         context_dict = {}
@@ -18,4 +18,3 @@ def render_to_pdf(template_src, context_dict):
     pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result, encoding='UTF-8')
     if not pdf.err:
         return HttpResponse(result.getvalue(), content_type='application/pdf')
-    return None

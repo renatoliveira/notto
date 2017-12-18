@@ -8,15 +8,16 @@
   float: right;
   z-index: +3;
   text-decoration: none;
-  color: black;
-  padding-top: 6px;
+  color: #444444;
+  padding-top: 7px;
+
   right: 6px;
 
 }
 
 .file_link{
   text-decoration: none;
-  color: black;
+  color: #444444;
   font-size: 1.5em;
 }
 
