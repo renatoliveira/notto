@@ -22,11 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 if 'NOTTO_SECRET_KEY' in os.environ:
     SECRET_KEY = os.environ['NOTTO_SECRET_KEY']
+    DEBUG = False
 else:
     SECRET_KEY = 'd6f1&y(dx-2oiilb&17itsjtqt6&@*&q#(wpwmx(=hwyu4$64-'
+    DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ALLOWED_HOSTS = []
 
