@@ -2,10 +2,11 @@ from io import BytesIO
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
-from django.template.loader import get_template
 from django.template import Context
-from cgi import escape
 
+'''
+module to generate the pdf
+'''
 def render_to_pdf(template_src, context_dict={}):
     template = get_template(template_src)
     context = Context(context_dict)
