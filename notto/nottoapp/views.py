@@ -90,21 +90,25 @@ def html2pdf(request, note_name):
     record = None
     try:
         notes = Note.objects.filter(
-            url_title=note_name
+            url_title = note_name
         )
         if request.method == 'GET':
             record = notes[0]
+        children = serializers.serialize(
+        'python', record.get_children().all(), fields=('url_title'))
+        children = json.dumps([c['fields'] for c in children])
+
+        pdf = render_to_pdf('template.html',  {'pagesize':'A4', 'title': note_name, 'mylist': record.content})
+        return HttpResponse(pdf, content_type='application/pdf')
+
     except Note.DoesNotExist:
         record = Note(
             content='',
             url_title=note_name
         )
-    children = serializers.serialize(
-        'python', record.get_children().all(), fields=('url_title'))
-    children = json.dumps([c['fields'] for c in children])
-    pdf = render_to_pdf('template.html', {
-        'pagesize': 'A4',
-        'title': note_name,
-        'mylist': record.content
-    })
+    pdf = render_to_pdf('template.html',  {'pagesize':'A4', 'title': note_name, 'mylist': ""})
     return HttpResponse(pdf, content_type='application/pdf')
+
+   
+   
+

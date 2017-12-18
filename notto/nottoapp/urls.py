@@ -10,4 +10,5 @@ urlpatterns = [
     path('<str:note_name>.pdf', views.html2pdf),
     path('<str:note_name>', views.note, name='note'),
     re_path(r'^(?P<note_name>)', views.note, name='note')
+    
 ]
