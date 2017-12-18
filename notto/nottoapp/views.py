@@ -92,8 +92,10 @@ def html2pdf(request, note_name):
         notes = Note.objects.filter(
             url_title=note_name
         )
-        if request.method == 'GET':
+        if request.method == 'GET' and notes:
             record = notes[0]
+        elif not notes:
+            record = Note()
         children = serializers.serialize(
             'python', record.get_children().all(), fields=('url_title')
         )
