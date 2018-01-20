@@ -1,4 +1,4 @@
 django==2.0.1
-pylint==1.7.5
-pylint-django==0.7.2
+pylint==1.8.1
+pylint-django==0.8.0
 xhtml2pdf>=0.2b1

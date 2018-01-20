@@ -2,13 +2,12 @@
 Notto views
 '''
 import json
-from nottoapp.pdf_builder import render_to_pdf
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from django.core import serializers
 from django.http import HttpResponse
+from nottoapp.pdf_builder import render_to_pdf
 from .models import Note
-
 
 def index(request):
     '''
