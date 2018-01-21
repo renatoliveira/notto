@@ -34,11 +34,12 @@ class Note(models.Model):
         '''
         Get children notes
         '''
+        children = None
         if self.url_title is not None:
             children = Note.objects.filter(
                 url_title__startswith=self.url_title+'/'
             )
-            return children
+        return children
 
     def has_parent(self):
         '''
@@ -52,6 +53,7 @@ class Note(models.Model):
         '''
         Get parent note
         '''
+        parent = [None]
         if self.url_title is not None and self.has_parent():
             parent = Note.objects.filter(
                 url_title=''.join(self.url_title.split('/')[:-1])
@@ -61,4 +63,4 @@ class Note(models.Model):
                     url_title=''.join(self.url_title.split('/')[:-1]),
                     content=''
                 )]
-            return parent[0]
+        return parent[0]
