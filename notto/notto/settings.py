@@ -29,11 +29,6 @@ else:
     DEBUG = True
     print('Running Notto in debug mode.')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [

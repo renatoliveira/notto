@@ -1,18 +1,21 @@
-'''
+"""
 Notto views
-'''
+"""
 import json
+
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from django.core import serializers
 from django.http import HttpResponse
-from nottoapp.pdf_builder import render_to_pdf
+
+from .pdf_builder import render_to_pdf
 from .models import Note
 
+
 def index(request):
-    '''
+    """
     Index
-    '''
+    """
     return render(
         request,
         'index.html'
@@ -21,9 +24,9 @@ def index(request):
 
 @csrf_protect
 def note(request, note_name):
-    '''
+    """
     A record
-    '''
+    """
     record = None
     if note_name == '':
         note_name = request.path[1:]
@@ -83,9 +86,9 @@ def note(request, note_name):
 
 @csrf_protect
 def html2pdf(request, note_name):
-    '''
+    """
     generate a pdf document
-    '''
+    """
     record = None
     try:
         notes = Note.objects.filter(
@@ -100,7 +103,7 @@ def html2pdf(request, note_name):
         )
         children = json.dumps([c['fields'] for c in children])
         pdf = render_to_pdf('template.html', {
-            'pagesize':'A4',
+            'pagesize': 'A4',
             'title': note_name,
             'mylist': record.content
         })
@@ -112,7 +115,7 @@ def html2pdf(request, note_name):
             url_title=note_name
         )
     pdf = render_to_pdf('template.html', {
-        'pagesize':'A4',
+        'pagesize': 'A4',
         'title': note_name,
         'mylist': ""
     })
