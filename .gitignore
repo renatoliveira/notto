@@ -143,3 +143,4 @@ $RECYCLE.BIN/
 *.sqlite3
 migrations
 */notto_static
+**/.idea
