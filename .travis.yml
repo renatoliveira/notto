@@ -3,8 +3,11 @@ python:
   - "3.6"
 
 install:
-  - pip install -r requirements.txt
+  - make install
+
+before_script:
+  - make lint
 
 script:
-  - python notto/manage.py test notto
+  - make test
   # - pylint notto/nottoapp --load-plugins pylint_django
