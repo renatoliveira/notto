@@ -17,6 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. `python -m venv nottoenv`
 1. `nottoenv\Scripts\activate`
 1. `pip install -r requirements.txt`
+1. `python notto\manage.py runserver` or `make build` if you have `make` (installed with MinGW or Cygwin) on your PC.
 
 ### Linux/MacOS
 
