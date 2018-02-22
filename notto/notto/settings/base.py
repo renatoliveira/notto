@@ -15,19 +15,10 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-if 'NOTTO_SECRET_KEY' in os.environ:
-    SECRET_KEY = os.environ['NOTTO_SECRET_KEY']
-    DEBUG = False
-    print('Running Notto with production settings.')
-else:
-    SECRET_KEY = 'd6f1&y(dx-2oiilb&17itsjtqt6&@*&q#(wpwmx(=hwyu4$64-'
-    DEBUG = True
-    print('Running Notto in debug mode.')
 
 # Application definition
 
