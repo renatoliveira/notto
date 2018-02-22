@@ -10,4 +10,3 @@ before_script:
 
 script:
   - make test
-  # - pylint notto/nottoapp --load-plugins pylint_django
