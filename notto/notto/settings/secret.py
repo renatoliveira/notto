@@ -4,6 +4,7 @@ Generates a random key.
 import string
 import random
 
+
 def generate():
     """
     Generates the key.
