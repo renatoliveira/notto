@@ -24,6 +24,10 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone this repo
 1. make build
 
+#### In case you find something wrong...
+
+Sometimes, you might get no errors when running the app for the first time, but find a "no table named nottoapp_note" error,or something like that. If you do so, then use the command `python manage.py migrate --sync-db`. You should see in the console "Synchronizing apps without migrations" and see "Creating table nottoapp_note" below.
+
 > The app will be available at http://127.0.0.1:8000
 
 ## Built With

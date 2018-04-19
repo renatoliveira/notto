@@ -19,7 +19,7 @@ makemigrations:
 	python notto/manage.py makemigrations nottoapp
 
 migrate:
-	python notto/manage.py migrate
+	python notto/manage.py migrate --run-syncdb
 
 run:
 	python notto/manage.py makemigrations --settings=notto.settings.development
