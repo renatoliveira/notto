@@ -4,7 +4,7 @@ lint:
 	flake8
 
 install:
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
 
 test:
 	python notto/manage.py test notto --settings=notto.settings.development
@@ -14,12 +14,6 @@ venv:
 
 source:
 	. nottoenv/bin/activate
-
-makemigrations:
-	python notto/manage.py makemigrations nottoapp
-
-migrate:
-	python notto/manage.py migrate
 
 run:
 	python notto/manage.py makemigrations --settings=notto.settings.development
@@ -35,6 +29,4 @@ build:
 	$(MAKE) venv
 	$(MAKE) source
 	$(MAKE) install
-	$(MAKE) makemigrations
-	$(MAKE) migrate
 	$(MAKE) run
