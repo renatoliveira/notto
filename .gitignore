@@ -144,3 +144,6 @@ $RECYCLE.BIN/
 migrations
 */notto_static
 **/.idea
+
+environment.ini
+environment.ini.lock

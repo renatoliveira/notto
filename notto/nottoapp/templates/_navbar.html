@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      {% if not user.is_authenticated %}
+      <a class="navbar-brand" href="#">Welcome!</a>
+      {% else %}
+      <a class="navbar-brand" href="#">Welcome back, {{ user.username }}! 👍</a>
+      <a class="navbar-brand" href="/logout">Logout? 🚪</a>
+      {% endif %}
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      {% block content %}
+      {% if not user.is_authenticated %}
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'social:begin' 'github' %}">Login</a></li>
+      </ul>
+      {% endif %}
+      {% endblock content %}
+    </div>
+  </div>
+</nav>

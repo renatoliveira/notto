@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from .safe_load import load_environment_file
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# safe load sensitive data from environment file
+load_environment_file('environment.ini')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -30,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +60,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -113,3 +120,15 @@ USE_TZ = True
 STATIC_ROOT = '/var/www/notto_static'
 STATIC_URL = '/static/'
 ALLOWED_HOSTS = ['*']
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
+SOCIAL_AUTH_GITHUB_KEY = os.environ.get('DJANGO_SOCIAL_AUTH_GITHUB_KEY')
+SOCIAL_AUTH_GITHUB_SECRET = os.environ.get('DJANGO_SOCIAL_AUTH_GITHUB_SECRET')
+
+LOGIN_URL = '/',
+LOGIN_REDIRECT_URL = '/'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+)

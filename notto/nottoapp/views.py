@@ -3,7 +3,8 @@ Notto views
 """
 import json
 
-from django.shortcuts import render
+from django.contrib.auth import logout
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.core import serializers
 from django.http import HttpResponse
@@ -120,3 +121,8 @@ def html2pdf(request, note_name):
         'mylist': ""
     })
     return HttpResponse(pdf, content_type='application/pdf')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('index')

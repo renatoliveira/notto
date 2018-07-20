@@ -15,6 +15,10 @@ venv:
 source:
 	. nottoenv/bin/activate
 
+migrate:
+	python notto/manage.py makemigrations --settings=notto.settings.production
+	python notto/manage.py migrate --settings=notto.settings.production
+
 run:
 	python notto/manage.py makemigrations --settings=notto.settings.development
 	python notto/manage.py migrate --settings=notto.settings.development
