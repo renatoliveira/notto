@@ -16,8 +16,12 @@ source:
 	. nottoenv/bin/activate
 
 migrate:
+<<<<<<< HEAD
 	python notto/manage.py makemigrations --settings=notto.settings.production
 	python notto/manage.py migrate --settings=notto.settings.production
+=======
+	python notto/manage.py migrate --run-syncdb
+>>>>>>> f7c11aebe7218d407d1384db1cdd6221b2eaf259
 
 run:
 	python notto/manage.py makemigrations --settings=notto.settings.development
