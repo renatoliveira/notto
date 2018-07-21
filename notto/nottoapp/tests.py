@@ -53,7 +53,8 @@ class NoteAccessTest(TestCase):
         form_data = {
             'content': 'a children content'
         }
-        self.client.post('/n/foo/bar', form_data)
+        post_result = self.client.post('/n/foo/bar', form_data)
+        self.assertNotEqual(post_result.status_code, 404)
         self.assertEqual(1, len(Note.objects.all()))
 
     def test_do_not_create_duplicates(self):

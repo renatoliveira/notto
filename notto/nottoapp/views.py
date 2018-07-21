@@ -31,7 +31,9 @@ def note(request, note_name):
     record = None
     if note_name == '':
         note_name = request.path[1:]
-    if note_name[len(note_name) - 1] == '/':
+    if note_name.startswith('/n/'):
+        note_name = note_name.replace('/n/', '', 1)
+    if note_name.endswith('/'):
         note_name = note_name[:-1]
     try:
         notes = Note.objects.filter(
