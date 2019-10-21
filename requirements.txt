@@ -27,7 +27,7 @@ requests-oauthlib==1.0.0
 six==1.11.0
 social-auth-app-django==2.1.0
 social-auth-core==1.7.0
-urllib3==1.23
+urllib3==1.24.2
 webencodings==0.5.1
 wrapt==1.10.11
 xhtml2pdf==0.2b1
